@@ -1,5 +1,8 @@
 package Lab;
 
+import Lab.Lab2.EquilateralTriangle;
+import Lab.Lab2.Triangle;
+
 import java.util.*;
 
 public class Main {
