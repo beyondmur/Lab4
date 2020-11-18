@@ -1,19 +1,24 @@
 package Lab.Lab2;
 
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Serializable;
 
-class EquliteralDB implements IArray{
+public class EquliteralDB implements IArray, Serializable {
     public ArrayList<EquilateralTriangle> equilTrianglesList = new ArrayList<>();
+
     public void add(double x1, double y1, double x2, double y2, double x3, double y3) {
         this.equilTrianglesList.add(new EquilateralTriangle(x1, y1, x2, y2, x3, y3));
     }
 
-    public void add(Point point_one, Point point_two,Point point_three){
+    public EquliteralDB() {
+        equilTrianglesList = new ArrayList<>();
+    }
+
+    public void add(Point point_one, Point point_two, Point point_three) {
         this.equilTrianglesList.add(new EquilateralTriangle(point_one, point_two, point_three));
     }
 
@@ -25,7 +30,7 @@ class EquliteralDB implements IArray{
         return this.equilTrianglesList.remove(index);
     }
 
-    public void clear(){
+    public void clear() {
         this.equilTrianglesList.clear();
     }
 
@@ -59,7 +64,7 @@ class EquliteralDB implements IArray{
         outStream.close();
     }
 
-    public void load(String filename) throws IOException{
+    public void load(String filename) throws IOException {
         this.clear();
         Scanner scanner = new Scanner(new FileReader(filename));
         double x1;
@@ -79,4 +84,3 @@ class EquliteralDB implements IArray{
         }
         scanner.close();
     }
-}

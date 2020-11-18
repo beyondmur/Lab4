@@ -1,5 +1,7 @@
 package Lab.Lab2;
 
+package com.company;
+
 import java.io.IOException;
 
 public interface IArray {
@@ -14,4 +16,3 @@ public interface IArray {
     void save(String filename) throws IOException;
 
     void load(String filename) throws IOException;
-}
